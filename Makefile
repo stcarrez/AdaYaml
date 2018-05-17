@@ -1,3 +1,5 @@
+prefix=/usr/local
+
 all: adayaml
 
 adayaml:
@@ -33,6 +35,10 @@ dropin:
 
 dropin_utils:
 	gprbuild -p -s -P libyaml_dropin-utils.gpr
+
+install:
+	gprinstall -p -f --prefix=${prefix} --build-name=parser_tools Parser_Tools/parser_tools.gpr
+	gprinstall -p -f --prefix=${prefix} --build-name=yaml yaml.gpr
 
 clean:
 	gprclean -P yaml.gpr
