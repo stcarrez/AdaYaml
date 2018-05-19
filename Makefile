@@ -40,6 +40,10 @@ install:
 	gprinstall -p -f --prefix=${prefix} --build-name=parser_tools Parser_Tools/parser_tools.gpr
 	gprinstall -p -f --prefix=${prefix} --build-name=yaml yaml.gpr
 
+uninstall:
+	-gprinstall -q -f --prefix=${prefix} --uninstall Parser_Tools/parser_tools.gpr
+	-gprinstall -q -f --prefix=${prefix} --uninstall yaml.gpr
+
 clean:
 	gprclean -P yaml.gpr
 	gprclean -P yaml-tests.gpr
